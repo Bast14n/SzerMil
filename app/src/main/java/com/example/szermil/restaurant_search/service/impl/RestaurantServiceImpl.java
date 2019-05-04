@@ -12,10 +12,10 @@ public class RestaurantServiceImpl implements RestaurantService {
     public List<Restaurant> getAllRestaurants() {
         return Arrays.asList(
                 new Restaurant(1, "Restauracja jeden"),
-                new Restaurant(1, "Restauracja dwa"),
-                new Restaurant(1, "Restauracja trzy"),
-                new Restaurant(1, "Restauracja cztery"),
-                new Restaurant(1, "Restauracja pięć")
+                new Restaurant(2, "Restauracja dwa"),
+                new Restaurant(3, "Restauracja trzy"),
+                new Restaurant(4, "Restauracja cztery"),
+                new Restaurant(5, "Restauracja pięć")
         );
     }
 }
