@@ -24,6 +24,7 @@ public class RestaurantSearch extends AppCompatActivity {
         List<Restaurant> restaurants = restaurantService.getAllRestaurants();
         for (final Restaurant restaurant : restaurants) {
             TextView textView = new TextView(getApplicationContext());
+            textView.setTextSize(30);
             textView.setText(restaurant.getName());
             textView.setOnClickListener(new View.OnClickListener() {
                 @Override
