@@ -7,13 +7,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.szermil.R;
+import com.example.szermil.restaurant_search.model.Restaurant;
 import com.example.szermil.restaurant_search.service.RestaurantService;
 import com.example.szermil.restaurant_search.service.impl.RestaurantServiceImpl;
-import com.example.szermil.restaurant_search.service.model.Restaurant;
 
 import java.util.List;
 
-public class RestaurantSearch extends AppCompatActivity {
+public class RestaurantSearchActivity extends AppCompatActivity {
     private RestaurantService restaurantService = new RestaurantServiceImpl();
 
     @Override

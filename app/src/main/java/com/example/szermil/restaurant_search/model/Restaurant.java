@@ -1,4 +1,4 @@
-package com.example.szermil.restaurant_search.service.model;
+package com.example.szermil.restaurant_search.model;
 
 public class Restaurant {
     private long id;

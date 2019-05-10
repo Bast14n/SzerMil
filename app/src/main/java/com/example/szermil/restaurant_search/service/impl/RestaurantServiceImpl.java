@@ -1,7 +1,7 @@
 package com.example.szermil.restaurant_search.service.impl;
 
+import com.example.szermil.restaurant_search.model.Restaurant;
 import com.example.szermil.restaurant_search.service.RestaurantService;
-import com.example.szermil.restaurant_search.service.model.Restaurant;
 
 import java.util.Arrays;
 import java.util.List;

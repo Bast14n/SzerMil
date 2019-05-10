@@ -1,6 +1,6 @@
 package com.example.szermil.restaurant_search.service;
 
-import com.example.szermil.restaurant_search.service.model.Restaurant;
+import com.example.szermil.restaurant_search.model.Restaurant;
 
 import java.util.List;
 
