@@ -3,10 +3,12 @@ package com.example.szermil.restaurant_search.model;
 public class Restaurant {
     private long id;
     private String name;
+    private String locality;
 
-    public Restaurant(long id, String name) {
+    public Restaurant(long id, String name, String locality) {
         this.id = id;
         this.name = name;
+        this.locality = locality;
     }
 
     public long getId() {
@@ -23,5 +25,13 @@ public class Restaurant {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getLocality() {
+        return locality;
+    }
+
+    public void setLocality(String locality) {
+        this.locality = locality;
     }
 }
