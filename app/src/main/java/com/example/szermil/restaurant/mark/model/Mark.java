@@ -8,7 +8,7 @@ public class Mark {
     private String mealName;
     private String comment;
     private int rating;
-    private Bitmap photo;
+    private String photoBase64;
 
     public long getUserId() {
         return userId;
@@ -50,13 +50,6 @@ public class Mark {
         this.rating = rating;
     }
 
-    public Bitmap getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(Bitmap photo) {
-        this.photo = photo;
-    }
 
     @Override
     public String toString() {
@@ -66,7 +59,15 @@ public class Mark {
                 ", mealName='" + mealName + '\'' +
                 ", comment='" + comment + '\'' +
                 ", rating=" + rating +
-                ", photo=" + photo +
+                ", photo=" + photoBase64 +
                 '}';
+    }
+
+    public String getPhotoBase64() {
+        return photoBase64;
+    }
+
+    public void setPhotoBase64(String photoBase64) {
+        this.photoBase64 = photoBase64;
     }
 }

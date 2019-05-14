@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +16,8 @@ import com.example.szermil.R;
 import com.example.szermil.restaurant.mark.model.Mark;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.io.ByteArrayOutputStream;
 
 public class MarkActivity extends AppCompatActivity {
     Mark mark;
@@ -85,6 +88,14 @@ public class MarkActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         Bitmap bitmap = (Bitmap)data.getExtras().get("data");
         imageView.setImageBitmap(bitmap);
-        mark.setPhoto(bitmap);
+        setPhoto(bitmap);
+    }
+
+    private void setPhoto(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100,byteArrayOutputStream);
+        byte[] bytes = byteArrayOutputStream.toByteArray();
+        String encoded = Base64.encodeToString(bytes,Base64.DEFAULT);
+        mark.setPhotoBase64(encoded);
     }
 }
