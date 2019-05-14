@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".restaurant.mark.MarkActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <EditText
+        android:id="@+id/mealName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:text="Nazwa potrawy"
+        android:layout_alignParentTop="true"
+        />
+
+    <TextView
+        android:id="@+id/textInfo"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mealName"
+        android:text="Dodaj swój komentarz"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        />
+
+    <EditText
+        android:id="@+id/comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_centerInParent="true"
+        android:inputType="textPersonName"
+        android:layout_below="@id/textInfo"
+        android:text="Max 255 znaków"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        />
+
+    <TextView
+        android:id="@+id/rateInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/comment"
+        android:text="Ocena"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        />
+
+    <EditText
+        android:id="@+id/rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/rateInfo"
+        android:inputType="numberDecimal"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        />
+    <ImageView
+        android:layout_below="@id/rate"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:id="@+id/photo"
+        android:layout_centerInParent="true"
+        />
+
+    <Button
+        android:id="@+id/photoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/photo"
+        android:text="Zrób zdjęcie"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        />
+
+    <Button
+        android:id="@+id/sendButton"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        android:text="Dodaj ocene"
+
+        android:paddingTop="20dp"
+        android:layout_margin="20dp"
+        android:layout_below="@id/photoButton"
+        android:paddingBottom="20dp"
+        />
+
+
+</RelativeLayout>
