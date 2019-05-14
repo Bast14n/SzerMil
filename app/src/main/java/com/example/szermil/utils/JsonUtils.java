@@ -9,22 +9,24 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.szermil.restaurant_search.RestaurantSearchActivity.MatomoHttpHandler.MAX_SIZE;
-
 public class JsonUtils {
+    private final static int MAX_SIZE = 20;
+
     public static List<Restaurant> getListOfRestaurantsFromJson(String json) throws JSONException {
         List<Restaurant> restaurants = new ArrayList<>(MAX_SIZE);
 
-        JSONObject jsonObject = new JSONObject(json);
-        JSONArray restaurantsArray = jsonObject.getJSONArray("restaurants");
-        for (int i = 0; i < MAX_SIZE; i++) {
-            JSONObject nextJsonElement = restaurantsArray.getJSONObject(i);
-            JSONObject restaurant = nextJsonElement.getJSONObject("restaurant");
-            JSONObject location = restaurant.getJSONObject("location");
-            restaurants.add(new Restaurant(
-                    restaurant.getLong("id"),
-                    restaurant.getString("name"),
-                    location.getString("locality")));
+        if (json != null) {
+            JSONObject jsonObject = new JSONObject(json);
+            JSONArray restaurantsArray = jsonObject.getJSONArray("restaurants");
+            for (int i = 0; i < MAX_SIZE && i < restaurantsArray.length(); i++) {
+                JSONObject nextJsonElement = restaurantsArray.getJSONObject(i);
+                JSONObject restaurant = nextJsonElement.getJSONObject("restaurant");
+                JSONObject location = restaurant.getJSONObject("location");
+                restaurants.add(new Restaurant(
+                        restaurant.getLong("id"),
+                        restaurant.getString("name"),
+                        location.getString("locality")));
+            }
         }
         return restaurants;
     }
