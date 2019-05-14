@@ -52,45 +52,13 @@ public class RestaurantSearchActivity extends AppCompatActivity {
         zomatoHttpHandler.execute(url);
     }
 
-    public class ZomatoSearchHttpHandler extends AsyncTask<String, Void, String> {
-        private OkHttpClient client = new OkHttpClient();
 
-        @Override
-        protected String doInBackground(String... params) {
-            String urlFromParams = params[0];
-            Request request = new Request.Builder()
-                    .header("Accept", "application/json")
-                    .header("user-key", USER_KEY)
-                    .get()
-                    .url(urlFromParams)
-                    .build();
-
-            try {
-                Response response = client.newCall(request).execute();
-                ResponseBody body = response.body();
-                return body == null ? null : body.string();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String json) {
-            super.onPostExecute(json);
-            try {
-                List<Restaurant> restaurants = JsonUtils.getListOfRestaurantsFromJson(json);
-
-                textView.setText("");
-                restaurants.forEach(restaurant -> textView.append("\n" +
-                        restaurant.getName() + ", " +
-                        restaurant.getLocality()));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
+    /**
+     * Class used to create request to Zomato API to get list of all restaurants when starting activity with search box
+     * doInBackground() calls API for response (list of all restaurants in json)
+     * in onPostExecute() json with list of restaurants is modelled to List of type Restaurant
+     * which can be used to display data in ui
+     */
     public class ZomatoHttpHandler extends AsyncTask<String, Void, String> {
         private OkHttpClient client = new OkHttpClient();
 
@@ -124,6 +92,51 @@ public class RestaurantSearchActivity extends AppCompatActivity {
                         textView.append("\n" +
                                 restaurant.getName() + ", " +
                                 restaurant.getLocality()));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * Class used to create request to Zomato API when searching for restaurants using search box
+     * doInBackground() calls API for response (list of restaurants searched using params from search box in json)
+     * in onPostExecute() json with list of restaurants is modelled to List of type Restaurant
+     * which can be used to display data in ui
+     */
+    public class ZomatoSearchHttpHandler extends AsyncTask<String, Void, String> {
+        private OkHttpClient client = new OkHttpClient();
+
+        @Override
+        protected String doInBackground(String... params) {
+            String urlFromParams = params[0];
+            Request request = new Request.Builder()
+                    .header("Accept", "application/json")
+                    .header("user-key", USER_KEY)
+                    .get()
+                    .url(urlFromParams)
+                    .build();
+
+            try {
+                Response response = client.newCall(request).execute();
+                ResponseBody body = response.body();
+                return body == null ? null : body.string();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String json) {
+            super.onPostExecute(json);
+            try {
+                List<Restaurant> restaurants = JsonUtils.getListOfRestaurantsFromJson(json);
+
+                textView.setText("");
+                restaurants.forEach(restaurant -> textView.append("\n" +
+                        restaurant.getName() + ", " +
+                        restaurant.getLocality()));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
