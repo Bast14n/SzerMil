@@ -12,22 +12,31 @@ import java.util.List;
 public class JsonUtils {
     private final static int MAX_SIZE = 20;
 
-    public static List<Restaurant> getListOfRestaurantsFromJson(String json) throws JSONException {
+    public static List<Restaurant> getListOfRestaurantsFromJson(String json)
+            throws JSONException {
         List<Restaurant> restaurants = new ArrayList<>(MAX_SIZE);
 
         if (json != null) {
             JSONObject jsonObject = new JSONObject(json);
             JSONArray restaurantsArray = jsonObject.getJSONArray("restaurants");
             for (int i = 0; i < MAX_SIZE && i < restaurantsArray.length(); i++) {
-                JSONObject nextJsonElement = restaurantsArray.getJSONObject(i);
-                JSONObject restaurant = nextJsonElement.getJSONObject("restaurant");
-                JSONObject location = restaurant.getJSONObject("location");
-                restaurants.add(new Restaurant(
-                        restaurant.getLong("id"),
-                        restaurant.getString("name"),
-                        location.getString("locality")));
+                Restaurant restaurant = getRestaurantFromJsonArray(restaurantsArray, i);
+                restaurants.add(restaurant);
             }
         }
         return restaurants;
+    }
+
+    private static Restaurant getRestaurantFromJsonArray(
+            JSONArray restaurants,
+            int index)
+            throws JSONException {
+        JSONObject nextJsonObject = restaurants.getJSONObject(index);
+        JSONObject restaurant = nextJsonObject.getJSONObject("restaurant");
+        JSONObject location = restaurant.getJSONObject("location");
+        return new Restaurant(
+                restaurant.getLong("id"),
+                restaurant.getString("name"),
+                location.getString("locality"));
     }
 }

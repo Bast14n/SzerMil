@@ -3,7 +3,6 @@ package com.example.szermil.restaurant_search;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -20,6 +19,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
+import static com.example.szermil.utils.ConfigUtils.USER_KEY;
+
 public class RestaurantSearchActivity extends AppCompatActivity {
     private TextView textView;
 
@@ -34,7 +35,6 @@ public class RestaurantSearchActivity extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                System.out.println("text submit: " + query);
                 String url = "https://developers.zomato.com/api/v2.1/search?entity_id=255&entity_type=city&q=" + query;
                 ZomatoSearchHttpHandler zomatoSearchHttpHandler = new ZomatoSearchHttpHandler();
                 zomatoSearchHttpHandler.execute(url);
@@ -60,7 +60,7 @@ public class RestaurantSearchActivity extends AppCompatActivity {
             String urlFromParams = params[0];
             Request request = new Request.Builder()
                     .header("Accept", "application/json")
-                    .header("user-key", "eaca7b8652fdfb93ad8d46bde2f4986b")
+                    .header("user-key", USER_KEY)
                     .get()
                     .url(urlFromParams)
                     .build();
@@ -88,7 +88,6 @@ public class RestaurantSearchActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            Log.d("jsonPrint", json);
         }
     }
 
@@ -100,7 +99,7 @@ public class RestaurantSearchActivity extends AppCompatActivity {
             String urlFromParams = params[0];
             Request request = new Request.Builder()
                     .header("Accept", "application/json")
-                    .header("user-key", "eaca7b8652fdfb93ad8d46bde2f4986b")
+                    .header("user-key", USER_KEY)
                     .get()
                     .url(urlFromParams)
                     .build();
@@ -110,7 +109,6 @@ public class RestaurantSearchActivity extends AppCompatActivity {
                 ResponseBody body = response.body();
                 return body == null ? null : body.string();
             } catch (Exception e) {
-                Log.d("ZomatoHttpHandler", "getListOfRestaurants exception");
                 e.printStackTrace();
             }
             return null;
@@ -129,7 +127,6 @@ public class RestaurantSearchActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            Log.d("listOfRestaurantsInJson", json);
         }
     }
 }
