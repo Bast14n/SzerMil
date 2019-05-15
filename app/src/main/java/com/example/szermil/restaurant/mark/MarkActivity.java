@@ -32,7 +32,6 @@ public class MarkActivity extends AppCompatActivity {
     EditText comment;
     private DatabaseReference databaseReference;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,113 +54,6 @@ public class MarkActivity extends AppCompatActivity {
         });
     }
 
-    private void sendMark() {
-        mealName = findViewById(R.id.mealName);
-        rating = findViewById(R.id.rate);
-        comment = findViewById(R.id.comment);
-        sendButton = findViewById(R.id.sendButton);
-
-        sendButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setMark(mealName, rating, comment);
-                boolean isCompleted = verifyMark(mark);
-                boolean isPhotoTaken = verifyPhoto(mark);
-                transferMarkOrSendAlert(isCompleted,isPhotoTaken);
-            }
-        });
-    }
-
-    private boolean verifyPhoto(Mark mark) {
-        boolean isPhotoTaken = false;
-        if(mark.getPhotoBase64()!=null) isPhotoTaken = true;
-
-        return isPhotoTaken;
-    }
-
-    private void transferMarkOrSendAlert(boolean isCompleted,boolean isPhotoTaken) {
-        if (isCompleted&&isPhotoTaken) {
-            transferMark(mark);
-        } else if(!isCompleted&&isPhotoTaken) {
-            sendFieldAlert();
-        }
-        else if(isCompleted&&!isPhotoTaken){
-            sendPhotoAlert();
-        }
-        else {
-            sendPhotoAndFieldAlert();
-        }
-    }
-
-    private void sendPhotoAndFieldAlert() {
-        new AlertDialog.Builder(this)
-                .setTitle("Uwaga!")
-                .setMessage("Nie zrobiono zdjęcia i nie wypełniono pól")
-
-                .setPositiveButton("OK",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.cancel();
-                            }
-                        })
-                .show();
-    }
-
-    private void sendPhotoAlert() {
-        new AlertDialog.Builder(this)
-                .setTitle("Uwaga!")
-                .setMessage("Nie zrobiono zdjęcia")
-
-                .setPositiveButton("OK",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.cancel();
-                            }
-                        })
-                .show();
-    }
-
-    private void sendFieldAlert() {
-        new AlertDialog.Builder(this)
-                .setTitle("Uwaga!")
-                .setMessage("Nie uzupełniono wszystkich pól")
-
-                .setPositiveButton("OK",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.cancel();
-                            }
-                        })
-                .show();
-    }
-
-    private boolean verifyMark(Mark mark) {
-        boolean flag = false;
-        if (!mark.getMealName().trim().isEmpty() && !mark.getComment().trim().isEmpty() && mark.getRaiting() != 0)
-            flag = true;
-
-        return flag;
-    }
-
-    private void transferMark(Mark mark) {
-        setDatabase();
-        databaseReference.child("marks").push().setValue(mark);
-        finish();
-    }
-
-    private void setDatabase() {
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-    }
-
-    private void setMark(EditText mealName, RatingBar rating, EditText comment) {
-        mark.setMealName(mealName.getText().toString());
-        mark.setRaiting((int) rating.getRating());
-        mark.setComment(comment.getText().toString());
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -180,5 +72,82 @@ public class MarkActivity extends AppCompatActivity {
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
         byte[] bytes = byteArrayOutputStream.toByteArray();
         return Base64.encodeToString(bytes, Base64.DEFAULT);
+    }
+
+    private void sendMark() {
+        mealName = findViewById(R.id.mealName);
+        rating = findViewById(R.id.rate);
+        comment = findViewById(R.id.comment);
+        sendButton = findViewById(R.id.sendButton);
+
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setMark(mealName, rating, comment);
+                boolean isCompleted = verifyMark(mark);
+                boolean isPhotoTaken = verifyPhoto(mark);
+                transferMarkOrSendAlert(isCompleted,isPhotoTaken);
+            }
+        });
+    }
+
+    private void setMark(EditText mealName, RatingBar rating, EditText comment) {
+        mark.setMealName(mealName.getText().toString());
+        mark.setRaiting((int) rating.getRating());
+        mark.setComment(comment.getText().toString());
+    }
+
+    private boolean verifyPhoto(Mark mark) {
+        boolean isPhotoTaken = false;
+        if(mark.getPhotoBase64()!=null) isPhotoTaken = true;
+
+        return isPhotoTaken;
+    }
+
+    private boolean verifyMark(Mark mark) {
+        boolean flag = false;
+        if (!mark.getMealName().trim().isEmpty() && !mark.getComment().trim().isEmpty() && mark.getRaiting() != 0)
+            flag = true;
+
+        return flag;
+    }
+
+    private void transferMarkOrSendAlert(boolean isCompleted,boolean isPhotoTaken) {
+        if (isCompleted&&isPhotoTaken) {
+            transferMark(mark);
+        } else if(!isCompleted&&isPhotoTaken) {
+            setAlert("Nie uzupełniono wszystkich pól");
+        }
+        else if(isCompleted&&!isPhotoTaken){
+            setAlert("Nie zrobiono zdjęcia");
+        }
+        else {
+            setAlert("Nie zrobiono zdjęcia i nie wypełniono pól");
+        }
+    }
+
+    private void setAlert(String s) {
+        new AlertDialog.Builder(this)
+                .setTitle("Uwaga!")
+                .setMessage(s)
+
+                .setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        })
+                .show();
+    }
+
+    private void transferMark(Mark mark) {
+        setDatabase();
+        databaseReference.child("marks").push().setValue(mark);
+        finish();
+    }
+
+    private void setDatabase() {
+        databaseReference = FirebaseDatabase.getInstance().getReference();
     }
 }

@@ -1,7 +1,5 @@
 package com.example.szermil.restaurant.mark.model;
 
-import android.graphics.Bitmap;
-
 public class Mark {
     private long userId;
     private long restaurantId;
