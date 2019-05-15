@@ -55,14 +55,14 @@
         android:paddingBottom="20dp"
         />
 
-    <EditText
+    <RatingBar
         android:id="@+id/rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:numStars="5"
         android:layout_centerInParent="true"
         android:layout_below="@id/rateInfo"
-        android:inputType="numberDecimal"
+        android:stepSize="1"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
         />

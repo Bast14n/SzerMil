@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 
 import com.example.szermil.R;
 import com.example.szermil.restaurant.mark.model.Mark;
@@ -25,7 +26,7 @@ public class MarkActivity extends AppCompatActivity {
     Button sendButton;
     ImageView imageView;
     EditText mealName;
-    EditText rating;
+    RatingBar rating;
     EditText comment;
     private DatabaseReference databaseReference;
 
@@ -77,9 +78,9 @@ public class MarkActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference();
     }
 
-    private void setMark(EditText mealName, EditText rating, EditText comment) {
+    private void setMark(EditText mealName, RatingBar rating, EditText comment) {
         mark.setMealName(mealName.getText().toString());
-        mark.setRaiting(Integer.parseInt(rating.getText().toString()));
+        mark.setRaiting((int) rating.getRating());
         mark.setComment(comment.getText().toString());
     }
 
@@ -92,10 +93,14 @@ public class MarkActivity extends AppCompatActivity {
     }
 
     private void setPhoto(Bitmap bitmap) {
+        String encoded = convertBitmapToBase64(bitmap);
+        mark.setPhotoBase64(encoded);
+    }
+
+    private String convertBitmapToBase64(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG,100,byteArrayOutputStream);
         byte[] bytes = byteArrayOutputStream.toByteArray();
-        String encoded = Base64.encodeToString(bytes,Base64.DEFAULT);
-        mark.setPhotoBase64(encoded);
+        return Base64.encodeToString(bytes,Base64.DEFAULT);
     }
 }
