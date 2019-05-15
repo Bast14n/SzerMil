@@ -66,20 +66,64 @@ public class MarkActivity extends AppCompatActivity {
             public void onClick(View v) {
                 setMark(mealName, rating, comment);
                 boolean isCompleted = verifyMark(mark);
-                transferMarkOrSendAlert(isCompleted);
+                boolean isPhotoTaken = verifyPhoto(mark);
+                transferMarkOrSendAlert(isCompleted,isPhotoTaken);
             }
         });
     }
 
-    private void transferMarkOrSendAlert(boolean isCompleted) {
-        if (isCompleted) {
+    private boolean verifyPhoto(Mark mark) {
+        boolean isPhotoTaken = false;
+        if(mark.getPhotoBase64()!=null) isPhotoTaken = true;
+
+        return isPhotoTaken;
+    }
+
+    private void transferMarkOrSendAlert(boolean isCompleted,boolean isPhotoTaken) {
+        if (isCompleted&&isPhotoTaken) {
             transferMark(mark);
-        } else {
-            sendAlert();
+        } else if(!isCompleted&&isPhotoTaken) {
+            sendFieldAlert();
+        }
+        else if(isCompleted&&!isPhotoTaken){
+            sendPhotoAlert();
+        }
+        else {
+            sendPhotoAndFieldAlert();
         }
     }
 
-    private void sendAlert() {
+    private void sendPhotoAndFieldAlert() {
+        new AlertDialog.Builder(this)
+                .setTitle("Uwaga!")
+                .setMessage("Nie zrobiono zdjęcia i nie wypełniono pól")
+
+                .setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        })
+                .show();
+    }
+
+    private void sendPhotoAlert() {
+        new AlertDialog.Builder(this)
+                .setTitle("Uwaga!")
+                .setMessage("Nie zrobiono zdjęcia")
+
+                .setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        })
+                .show();
+    }
+
+    private void sendFieldAlert() {
         new AlertDialog.Builder(this)
                 .setTitle("Uwaga!")
                 .setMessage("Nie uzupełniono wszystkich pól")
