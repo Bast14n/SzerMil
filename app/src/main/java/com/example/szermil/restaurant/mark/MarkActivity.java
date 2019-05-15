@@ -1,10 +1,12 @@
 package com.example.szermil.restaurant.mark;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.view.View;
@@ -70,29 +72,40 @@ public class MarkActivity extends AppCompatActivity {
     }
 
     private void transferMarkOrSendAlert(boolean isCompleted) {
-        if(isCompleted){
+        if (isCompleted) {
             transferMark(mark);
-        }
-        else {
+        } else {
             sendAlert();
         }
     }
 
     private void sendAlert() {
+        new AlertDialog.Builder(this)
+                .setTitle("Uwaga!")
+                .setMessage("Nie uzupełniono wszystkich pól")
 
+                .setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        })
+                .show();
     }
 
     private boolean verifyMark(Mark mark) {
         boolean flag = false;
-        if(!mark.getMealName().trim().isEmpty() &&!mark.getComment().trim().isEmpty()&&mark.getRaiting()!=0) flag = true;
+        if (!mark.getMealName().trim().isEmpty() && !mark.getComment().trim().isEmpty() && mark.getRaiting() != 0)
+            flag = true;
 
         return flag;
     }
 
     private void transferMark(Mark mark) {
-            setDatabase();
-            databaseReference.child("marks").push().setValue(mark);
-            finish();
+        setDatabase();
+        databaseReference.child("marks").push().setValue(mark);
+        finish();
     }
 
     private void setDatabase() {
