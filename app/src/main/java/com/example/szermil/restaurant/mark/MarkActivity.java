@@ -40,7 +40,7 @@ public class MarkActivity extends AppCompatActivity {
         sendMark();
     }
 
-    private void getPhoto(){
+    private void getPhoto() {
         photoButton = findViewById(R.id.photoButton);
         imageView = findViewById(R.id.photo);
 
@@ -48,12 +48,12 @@ public class MarkActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent,0);
+                startActivityForResult(intent, 0);
             }
         });
     }
 
-    private void sendMark(){
+    private void sendMark() {
         mealName = findViewById(R.id.mealName);
         rating = findViewById(R.id.rate);
         comment = findViewById(R.id.comment);
@@ -62,16 +62,26 @@ public class MarkActivity extends AppCompatActivity {
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setMark(mealName,rating,comment);
-                transferMark(mark);
+                setMark(mealName, rating, comment);
+                boolean isCompleted = verifyMark(mark);
+                transferMark(isCompleted, mark);
             }
         });
     }
 
-    private void transferMark(Mark mark) {
-        setDatabase();
-        databaseReference.child("category").push().setValue(mark);
-        finish();
+    private boolean verifyMark(Mark mark) {
+        boolean flag = false;
+        if(mark.getMealName()!=""&&mark.getComment()!=""&&mark.getRaiting()!=0&&mark.getPhotoBase64()!="") flag = true;
+
+        return flag;
+    }
+
+    private void transferMark(boolean isCompleted, Mark mark) {
+        if (isCompleted) {
+            setDatabase();
+            databaseReference.child("marks").push().setValue(mark);
+            finish();
+        }
     }
 
     private void setDatabase() {
@@ -87,7 +97,7 @@ public class MarkActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Bitmap bitmap = (Bitmap)data.getExtras().get("data");
+        Bitmap bitmap = (Bitmap) data.getExtras().get("data");
         imageView.setImageBitmap(bitmap);
         setPhoto(bitmap);
     }
@@ -99,8 +109,8 @@ public class MarkActivity extends AppCompatActivity {
 
     private String convertBitmapToBase64(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG,100,byteArrayOutputStream);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
         byte[] bytes = byteArrayOutputStream.toByteArray();
-        return Base64.encodeToString(bytes,Base64.DEFAULT);
+        return Base64.encodeToString(bytes, Base64.DEFAULT);
     }
 }
