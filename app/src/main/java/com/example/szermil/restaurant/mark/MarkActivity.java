@@ -64,24 +64,35 @@ public class MarkActivity extends AppCompatActivity {
             public void onClick(View v) {
                 setMark(mealName, rating, comment);
                 boolean isCompleted = verifyMark(mark);
-                transferMark(isCompleted, mark);
+                transferMarkOrSendAlert(isCompleted);
             }
         });
     }
 
+    private void transferMarkOrSendAlert(boolean isCompleted) {
+        if(isCompleted){
+            transferMark(mark);
+        }
+        else {
+            sendAlert();
+        }
+    }
+
+    private void sendAlert() {
+
+    }
+
     private boolean verifyMark(Mark mark) {
         boolean flag = false;
-        if(mark.getMealName()!=""&&mark.getComment()!=""&&mark.getRaiting()!=0&&mark.getPhotoBase64()!="") flag = true;
+        if(!mark.getMealName().trim().isEmpty() &&!mark.getComment().trim().isEmpty()&&mark.getRaiting()!=0) flag = true;
 
         return flag;
     }
 
-    private void transferMark(boolean isCompleted, Mark mark) {
-        if (isCompleted) {
+    private void transferMark(Mark mark) {
             setDatabase();
             databaseReference.child("marks").push().setValue(mark);
             finish();
-        }
     }
 
     private void setDatabase() {
