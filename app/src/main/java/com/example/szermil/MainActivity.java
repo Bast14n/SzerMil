@@ -6,9 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.szermil.restaurant.mark.MarkActivity;
 import com.example.szermil.restaurant_search.RestaurantSearchActivity;
 
 public class MainActivity extends AppCompatActivity {
+    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), RestaurantSearchActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        changeActivity();
+    }
+
+    private void changeActivity() {
+        button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MarkActivity.class);
                 startActivity(intent);
             }
         });
