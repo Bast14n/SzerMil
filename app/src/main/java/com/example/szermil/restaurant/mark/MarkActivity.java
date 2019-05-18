@@ -1,6 +1,5 @@
 package com.example.szermil.restaurant.mark;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -9,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -45,12 +43,9 @@ public class MarkActivity extends AppCompatActivity {
         photoButton = findViewById(R.id.photoButton);
         imageView = findViewById(R.id.photo);
 
-        photoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent, 0);
-            }
+        photoButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(intent, 0);
         });
     }
 
@@ -80,14 +75,11 @@ public class MarkActivity extends AppCompatActivity {
         comment = findViewById(R.id.comment);
         sendButton = findViewById(R.id.sendButton);
 
-        sendButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setMark(mealName, rating, comment);
-                boolean isCompleted = verifyMark(mark);
-                boolean isPhotoTaken = verifyPhoto(mark);
-                transferMarkOrSendAlert(isCompleted,isPhotoTaken);
-            }
+        sendButton.setOnClickListener(v -> {
+            setMark(mealName, rating, comment);
+            boolean isCompleted = verifyMark(mark);
+            boolean isPhotoTaken = verifyPhoto(mark);
+            transferMarkOrSendAlert(isCompleted, isPhotoTaken);
         });
     }
 
@@ -99,7 +91,7 @@ public class MarkActivity extends AppCompatActivity {
 
     private boolean verifyPhoto(Mark mark) {
         boolean isPhotoTaken = false;
-        if(mark.getPhotoBase64()!=null) isPhotoTaken = true;
+        if (mark.getPhotoBase64() != null) isPhotoTaken = true;
 
         return isPhotoTaken;
     }
@@ -112,16 +104,14 @@ public class MarkActivity extends AppCompatActivity {
         return flag;
     }
 
-    private void transferMarkOrSendAlert(boolean isCompleted,boolean isPhotoTaken) {
-        if (isCompleted&&isPhotoTaken) {
+    private void transferMarkOrSendAlert(boolean isCompleted, boolean isPhotoTaken) {
+        if (isCompleted && isPhotoTaken) {
             transferMark(mark);
-        } else if(!isCompleted&&isPhotoTaken) {
+        } else if (!isCompleted && isPhotoTaken) {
             setAlert("Nie uzupełniono wszystkich pól");
-        }
-        else if(isCompleted&&!isPhotoTaken){
+        } else if (isCompleted && !isPhotoTaken) {
             setAlert("Nie zrobiono zdjęcia");
-        }
-        else {
+        } else {
             setAlert("Nie zrobiono zdjęcia i nie wypełniono pól");
         }
     }
@@ -132,12 +122,7 @@ public class MarkActivity extends AppCompatActivity {
                 .setMessage(s)
 
                 .setPositiveButton("OK",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.cancel();
-                            }
-                        })
+                        (dialog, which) -> dialog.cancel())
                 .show();
     }
 
