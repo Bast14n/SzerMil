@@ -15,7 +15,8 @@
         android:inputType="textPersonName"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
-        android:text="Nazwa potrawy" />
+        android:text="@string/mealName"
+        />
 
     <TextView
         android:id="@+id/textInfo"
@@ -25,7 +26,7 @@
         android:layout_centerInParent="true"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
-        android:text="Dodaj swój komentarz" />
+        android:text="@string/addCommentText" />
 
     <EditText
         android:id="@+id/comment"
@@ -37,7 +38,7 @@
         android:inputType="textPersonName"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
-        android:text="Max 255 znaków" />
+        android:text="@string/maxText" />
 
     <TextView
         android:id="@+id/rateInfo"
@@ -47,7 +48,7 @@
         android:layout_centerInParent="true"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
-        android:text="Ocena" />
+        android:text="@string/rateInfoText" />
 
     <RatingBar
         android:id="@+id/rate"
@@ -65,7 +66,8 @@
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_below="@id/rate"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:contentDescription="@string/ratePhotoText" />
 
     <Button
         android:id="@+id/photoButton"
@@ -75,7 +77,7 @@
         android:layout_centerInParent="true"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
-        android:text="Zrób zdjęcie" />
+        android:text="@string/photoButtonText" />
 
     <Button
         android:id="@+id/sendButton"
@@ -87,7 +89,7 @@
         android:layout_margin="20dp"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
-        android:text="Dodaj ocene" />
+        android:text="@string/sendButtonText" />
 
 
 </RelativeLayout>

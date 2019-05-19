@@ -19,14 +19,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setButtonListeners() {
-        Button addRatingButton = findViewById(R.id.button);
-        addRatingButton.setOnClickListener(v -> {
+        Button loginButton = findViewById(R.id.loginButton);
+        loginButton.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), MarkActivity.class);
             startActivity(intent);
         });
 
-        Button restaurantsSearchButton = findViewById(R.id.restaurantsSearchButton);
-        restaurantsSearchButton.setOnClickListener(v -> {
+        Button facebookLoginButton = findViewById(R.id.facebookLoginButton);
+        facebookLoginButton.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), RestaurantSearchActivity.class);
+            startActivity(intent);
+        });
+        Button registerButton = findViewById(R.id.registerButton);
+        registerButton.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), RestaurantSearchActivity.class);
             startActivity(intent);
         });
