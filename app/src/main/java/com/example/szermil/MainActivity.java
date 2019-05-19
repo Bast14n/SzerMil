@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
+import com.beardedhen.androidbootstrap.BootstrapLabel;
 import com.example.szermil.restaurant.mark.MarkActivity;
 import com.example.szermil.restaurant_search.RestaurantSearchActivity;
 
@@ -19,18 +20,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setButtonListeners() {
-        Button loginButton = findViewById(R.id.loginButton);
+        BootstrapLabel loginButton = findViewById(R.id.loginButton);
         loginButton.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), MarkActivity.class);
             startActivity(intent);
         });
 
-        Button facebookLoginButton = findViewById(R.id.facebookLoginButton);
+        BootstrapLabel facebookLoginButton = findViewById(R.id.facebookLoginButton);
         facebookLoginButton.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), RestaurantSearchActivity.class);
             startActivity(intent);
         });
-        Button registerButton = findViewById(R.id.registerButton);
+        BootstrapLabel registerButton = findViewById(R.id.registerButton);
         registerButton.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), RestaurantSearchActivity.class);
             startActivity(intent);
