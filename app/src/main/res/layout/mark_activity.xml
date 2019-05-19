@@ -3,14 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffa"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".restaurant.mark.MarkActivity">
 
-    <EditText
-        android:id="@+id/mealName"
-        android:layout_width="wrap_content"
+    <com.beardedhen.androidbootstrap.BootstrapLabel
+        android:id="@+id/mealNameLabel"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
         android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        app:bootstrapBrand="warning"
+        android:text="Podaj nazwę potrawy:" />
+
+    <com.beardedhen.androidbootstrap.BootstrapEditText
+        android:id="@+id/mealName"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/mealNameLabel"
         android:ems="10"
         android:inputType="textPersonName"
         android:paddingTop="20dp"
@@ -18,19 +31,22 @@
         android:text="@string/mealName"
         />
 
-    <TextView
+    <com.beardedhen.androidbootstrap.BootstrapLabel
         android:id="@+id/textInfo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:layout_below="@id/mealName"
         android:layout_centerInParent="true"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
+        app:bootstrapBrand="warning"
         android:text="@string/addCommentText" />
 
-    <EditText
+    <com.beardedhen.androidbootstrap.BootstrapEditText
         android:id="@+id/comment"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/textInfo"
         android:layout_centerInParent="true"
@@ -39,15 +55,15 @@
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
         android:text="@string/maxText" />
-
-    <TextView
+    <com.beardedhen.androidbootstrap.BootstrapLabel
         android:id="@+id/rateInfo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:layout_below="@id/comment"
         android:layout_centerInParent="true"
         android:paddingTop="20dp"
-        android:paddingBottom="20dp"
+        app:bootstrapBrand="warning"
         android:text="@string/rateInfoText" />
 
     <RatingBar
@@ -58,8 +74,7 @@
         android:layout_centerInParent="true"
         android:numStars="5"
         android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:stepSize="1" />
+        android:stepSize="0.5" />
 
     <ImageView
         android:id="@+id/photo"
@@ -69,27 +84,24 @@
         android:layout_centerInParent="true"
         android:contentDescription="@string/ratePhotoText" />
 
-    <Button
+    <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/photoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/photo"
+        app:bootstrapBrand="warning"
         android:layout_centerInParent="true"
         android:paddingTop="20dp"
-        android:paddingBottom="20dp"
         android:text="@string/photoButtonText" />
 
-    <Button
+    <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/sendButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/photoButton"
         android:layout_centerInParent="true"
-
-        android:layout_margin="20dp"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
+        app:bootstrapBrand="success"
+        android:layout_marginTop="20dp"
         android:text="@string/sendButtonText" />
-
 
 </RelativeLayout>

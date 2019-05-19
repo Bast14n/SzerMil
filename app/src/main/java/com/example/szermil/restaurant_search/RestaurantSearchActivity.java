@@ -23,7 +23,6 @@ import static com.example.szermil.utils.ConfigUtils.USER_KEY;
 
 public class RestaurantSearchActivity extends AppCompatActivity {
     private TextView textView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
