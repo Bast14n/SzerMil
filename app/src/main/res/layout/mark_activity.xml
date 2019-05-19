@@ -8,14 +8,27 @@
     tools:context=".restaurant.mark.MarkActivity">
 
     <com.beardedhen.androidbootstrap.BootstrapLabel
-        android:id="@+id/mealNameLabel"
+        android:id="@+id/restaurantNameLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        app:bootstrapBrand="danger"
         android:layout_centerInParent="true"
         android:layout_alignParentTop="true"
+        app:bootstrapHeading="h2"
+        app:roundedCorners="true"
+        android:text="@string/example_restaurant"
+        />
+    <com.beardedhen.androidbootstrap.BootstrapLabel
+        android:id="@+id/mealNameLabel"
+        android:layout_width="match_parent"
+        app:roundedCorners="true"
+        android:layout_below="@+id/restaurantNameLabel"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_centerInParent="true"
         app:bootstrapBrand="warning"
-        android:text="Podaj nazwę potrawy:" />
+        android:text="@string/mealNameLabelText" />
 
     <com.beardedhen.androidbootstrap.BootstrapEditText
         android:id="@+id/mealName"
@@ -28,7 +41,7 @@
         android:inputType="textPersonName"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
-        android:text="@string/mealName"
+        android:hint="@string/mealName"
         />
 
     <com.beardedhen.androidbootstrap.BootstrapLabel
@@ -36,6 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        app:roundedCorners="true"
         android:layout_below="@id/mealName"
         android:layout_centerInParent="true"
         android:paddingTop="20dp"
@@ -54,13 +68,14 @@
         android:inputType="textPersonName"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
-        android:text="@string/maxText" />
+        android:hint="@string/maxText" />
     <com.beardedhen.androidbootstrap.BootstrapLabel
         android:id="@+id/rateInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_below="@id/comment"
+        app:roundedCorners="true"
         android:layout_centerInParent="true"
         android:paddingTop="20dp"
         app:bootstrapBrand="warning"
@@ -86,17 +101,19 @@
 
     <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/photoButton"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/photo"
         app:bootstrapBrand="warning"
         android:layout_centerInParent="true"
+        app:roundedCorners="true"
         android:paddingTop="20dp"
         android:text="@string/photoButtonText" />
 
     <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/sendButton"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
+        android:layout_margin="10dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/photoButton"
         android:layout_centerInParent="true"

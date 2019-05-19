@@ -11,4 +11,6 @@
     <string name="sendButtonText">Dodaj ocene</string>
     <string name="ratePhotoText">ratePhoto</string>
     <string name="rateInfoText">Ocena</string>
+    <string name="mealNameLabelText">Podaj nazwę potrawy:</string>
+    <string name="example_restaurant">EXAMPLE RESTAURANT</string>
 </resources>
