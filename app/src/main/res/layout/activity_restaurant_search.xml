@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="#ffa"
-    android:id="@+id/restaurantRelativeLayout"
     android:layout_height="match_parent"
+    android:id="@+id/restaurantRelativeLayout"
     tools:context=".restaurant_search.RestaurantSearchActivity">
 
     <SearchView

@@ -3,7 +3,6 @@ package com.example.szermil;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
 
 import com.beardedhen.androidbootstrap.BootstrapLabel;
 import com.example.szermil.restaurant.mark.MarkActivity;
