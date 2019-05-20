@@ -3,6 +3,7 @@ package com.example.szermil;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Button;
 
 
 import com.beardedhen.androidbootstrap.BootstrapLabel;
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         BootstrapLabel facebookLoginButton = findViewById(R.id.facebookLoginButton);
         facebookLoginButton.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), RestaurantSearchActivity.class);
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
         });
         BootstrapLabel registerButton = findViewById(R.id.registerButton);
@@ -38,11 +39,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        Button loginButton = findViewById(R.id.loginButton);
-        loginButton.setOnClickListener(view -> {
-            Intent intent = new Intent(this,LoginActivity.class);
-            startActivity(intent);
-        });
     }
 
 

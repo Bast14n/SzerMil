@@ -38,10 +38,18 @@
     <com.beardedhen.androidbootstrap.BootstrapLabel
         android:id="@+id/facebookLoginButton"
         android:layout_width="300dp"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="10dp"
-        app:bootstrapHeading="h4"
+        app:bootstrapHeading="h3"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"
+        android:text="@string/facebookLoginButtonText"
+        app:bootstrapBrand="primary"
+        app:bootstrapSize="lg"
+        app:buttonMode="regular"
+        app:showOutline="false"
+        android:layout_above="@id/registerButton"
+        app:roundedCorners="true"
+        />
 
     <com.beardedhen.androidbootstrap.BootstrapLabel
         android:id="@+id/registerButton"
