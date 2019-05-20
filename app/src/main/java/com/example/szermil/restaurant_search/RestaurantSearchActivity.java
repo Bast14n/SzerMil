@@ -3,6 +3,10 @@ package com.example.szermil.restaurant_search;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -22,13 +26,12 @@ import okhttp3.ResponseBody;
 import static com.example.szermil.utils.ConfigUtils.USER_KEY;
 
 public class RestaurantSearchActivity extends AppCompatActivity {
-    private TextView textView;
+    private LinearLayout linear;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_search);
 
-        textView = findViewById(R.id.textView1);
 
         SearchView searchView = findViewById(R.id.restaurantsSearchView);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -86,11 +89,18 @@ public class RestaurantSearchActivity extends AppCompatActivity {
             super.onPostExecute(json);
             try {
                 List<Restaurant> restaurants = JsonUtils.getListOfRestaurantsFromJson(json);
-
-                restaurants.forEach(restaurant ->
-                        textView.append("\n" +
-                                restaurant.getName() + ", " +
-                                restaurant.getLocality()));
+                linear = (LinearLayout) findViewById(R.id.linearLayoutRestaurantList);
+                TextView[] newTextView = new TextView[10];
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                for (int i = 0; i < newTextView.length; i++) {
+                    newTextView[i] = new TextView(getBaseContext());
+                    newTextView[i].setHeight(100);
+                    newTextView[i].setTextSize(25);
+                    newTextView[i].setId(i);
+                    newTextView[i].setLayoutParams(layoutParams);
+                    newTextView[i].setText(restaurants.get(i).getName());
+                    linear.addView(newTextView[i]);
+                }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -132,10 +142,19 @@ public class RestaurantSearchActivity extends AppCompatActivity {
             try {
                 List<Restaurant> restaurants = JsonUtils.getListOfRestaurantsFromJson(json);
 
-                textView.setText("");
-                restaurants.forEach(restaurant -> textView.append("\n" +
-                        restaurant.getName() + ", " +
-                        restaurant.getLocality()));
+                linear = (LinearLayout) findViewById(R.id.linearLayoutRestaurantList);
+                TextView[] newTextView = new TextView[10];
+                linear.removeAllViews();
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                for (int i = 0; i < newTextView.length; i++) {
+                    newTextView[i] = new TextView(getBaseContext());
+                    newTextView[i].setHeight(100);
+                    newTextView[i].setTextSize(25);
+                    newTextView[i].setId(i);
+                    newTextView[i].setLayoutParams(layoutParams);
+                    newTextView[i].setText(restaurants.get(i).getName());
+                    linear.addView(newTextView[i]);
+                }
             } catch (JSONException e) {
                 e.printStackTrace();
             }

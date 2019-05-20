@@ -16,31 +16,12 @@
         android:layout_margin="10dp"
         android:background="#ffa000"
         />
-    <ScrollView
-        android:id="@+id/restaurantsScrollView"
-        android:layout_width="369dp"
-        android:layout_height="614dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_below="@+id/restaurantsSearchView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/restaurantsSearchView"
-        app:layout_constraintVertical_bias="0.275">
 
-        <LinearLayout
-            android:id="@+id/restaurantsScrollViewLinearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
-    <TextView
-        android:id="@+id/textView1"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="10dp"
-        android:layout_below="@+id/restaurantsSearchView" />
+        android:layout_below="@+id/restaurantsSearchView"
+        android:id="@+id/linearLayoutRestaurantList"
+        android:orientation="vertical" />
 </RelativeLayout>
