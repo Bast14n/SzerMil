@@ -90,7 +90,7 @@ public class RestaurantSearchActivity extends AppCompatActivity {
             try {
                 List<Restaurant> restaurants = JsonUtils.getListOfRestaurantsFromJson(json);
                 linear = (LinearLayout) findViewById(R.id.linearLayoutRestaurantList);
-                TextView[] newTextView = new TextView[10];
+                TextView[] newTextView = new TextView[20];
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 for (int i = 0; i < newTextView.length; i++) {
                     newTextView[i] = new TextView(getBaseContext());
