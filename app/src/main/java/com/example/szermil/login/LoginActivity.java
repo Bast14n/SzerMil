@@ -197,4 +197,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         usersDB.signIn(user);
     }
+
+    private void emptyF() {
+
+    }
 }
