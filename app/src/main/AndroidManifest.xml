@@ -22,5 +22,6 @@
 
         <activity android:name=".restaurant_search.RestaurantSearchActivity"></activity>
         <activity android:name=".restaurant.mark.MarkActivity"></activity>
+        <activity android:name=".login.LoginActivity"></activity>
     </application>
 </manifest>

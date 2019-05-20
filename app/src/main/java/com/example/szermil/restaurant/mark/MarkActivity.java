@@ -86,7 +86,7 @@ public class MarkActivity extends AppCompatActivity {
 
     private void setMark(BootstrapEditText mealName, RatingBar rating, BootstrapEditText comment) {
         mark.setMealName(mealName.getText().toString());
-        mark.setRaiting((int) rating.getRating());
+        mark.setRating((int) rating.getRating());
         mark.setComment(comment.getText().toString());
     }
 
@@ -99,7 +99,7 @@ public class MarkActivity extends AppCompatActivity {
 
     private boolean verifyMark(Mark mark) {
         boolean flag = false;
-        if (!mark.getMealName().trim().isEmpty() && !mark.getComment().trim().isEmpty() && mark.getRaiting() != 0)
+        if (!mark.getMealName().trim().isEmpty() && !mark.getComment().trim().isEmpty() && mark.getRating() != 0)
             flag = true;
 
         return flag;

@@ -13,4 +13,8 @@
     <string name="rateInfoText">Ocena</string>
     <string name="mealNameLabelText">Podaj nazwę potrawy:</string>
     <string name="example_restaurant">EXAMPLE RESTAURANT</string>
+    <string name="success_send">Wiadomość wysłana</string>
+    <string name="failure_send">Wiadomość nie została wysłana</string>
+    <string name="facebook_app_id">2062063413920312</string>
+    <string name="fb_login_protocol_scheme">fb2062063413920312</string>
 </resources>

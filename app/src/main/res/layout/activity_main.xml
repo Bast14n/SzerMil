@@ -7,6 +7,7 @@
     android:background="#ffa"
     tools:context=".MainActivity">
 
+
     <ImageView
         android:id="@+id/logoImage"
         android:layout_width="300dp"
@@ -41,14 +42,7 @@
         android:layout_marginBottom="10dp"
         app:bootstrapHeading="h4"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/registerButton"
-        android:text="@string/facebookLoginButtonText"
-        app:bootstrapBrand="primary"
-        app:bootstrapSize="lg"
-        app:buttonMode="regular"
-        app:showOutline="false"
-        app:roundedCorners="true"
-        />
+
     <com.beardedhen.androidbootstrap.BootstrapLabel
         android:id="@+id/registerButton"
         android:layout_width="300dp"
