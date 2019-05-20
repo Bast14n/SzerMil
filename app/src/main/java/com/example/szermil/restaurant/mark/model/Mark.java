@@ -40,11 +40,11 @@ public class Mark {
         this.comment = comment;
     }
 
-    public int getRaiting() {
+    public int getRating() {
         return rating;
     }
 
-    public void setRaiting(int rating) {
+    public void setRating(int rating) {
         this.rating = rating;
     }
 
