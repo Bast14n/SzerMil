@@ -8,11 +8,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
+import com.beardedhen.androidbootstrap.BootstrapEditText;
 import com.example.szermil.R;
 import com.example.szermil.restaurant.mark.model.Mark;
 import com.google.firebase.database.DatabaseReference;
@@ -21,19 +21,20 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.io.ByteArrayOutputStream;
 
 public class MarkActivity extends AppCompatActivity {
-    Mark mark;
-    Button photoButton;
-    Button sendButton;
-    ImageView imageView;
-    EditText mealName;
-    RatingBar rating;
-    EditText comment;
+    private Mark mark;
+    private BootstrapButton photoButton;
+    private BootstrapButton sendButton;
+    private ImageView imageView;
+    private BootstrapEditText mealName;
+    private RatingBar rating;
+    private BootstrapEditText comment;
     private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mark_activity);
+
         mark = new Mark();
         getPhoto();
         sendMark();
@@ -83,7 +84,7 @@ public class MarkActivity extends AppCompatActivity {
         });
     }
 
-    private void setMark(EditText mealName, RatingBar rating, EditText comment) {
+    private void setMark(BootstrapEditText mealName, RatingBar rating, BootstrapEditText comment) {
         mark.setMealName(mealName.getText().toString());
         mark.setRating((int) rating.getRating());
         mark.setComment(comment.getText().toString());

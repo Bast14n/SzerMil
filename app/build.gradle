@@ -39,6 +39,9 @@ dependencies {
     implementation 'com.android.support:exifinterface:28.0.0'
     implementation 'com.android.support:animated-vector-drawable:28.0.0'
     implementation 'com.android.support:support-media-compat:28.0.0'
+
+    implementation 'com.android.support:support-v4:28.0.+'
+    implementation project(path: ':AndroidBootstrap')
     implementation 'com.android.support:support-v4:28.0.0'
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.google.firebase:firebase-core:16.0.9'

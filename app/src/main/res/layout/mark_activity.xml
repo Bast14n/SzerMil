@@ -1,35 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#ffa"
     android:layout_height="match_parent"
     tools:context=".restaurant.mark.MarkActivity">
 
-    <EditText
-        android:id="@+id/mealName"
-        android:layout_width="wrap_content"
+    <com.beardedhen.androidbootstrap.BootstrapLabel
+        android:id="@+id/restaurantNameLabel"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        app:bootstrapBrand="danger"
         android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        app:bootstrapHeading="h2"
+        app:roundedCorners="true"
+        android:text="@string/example_restaurant"
+        />
+    <com.beardedhen.androidbootstrap.BootstrapLabel
+        android:id="@+id/mealNameLabel"
+        android:layout_width="match_parent"
+        app:roundedCorners="true"
+        android:layout_below="@+id/restaurantNameLabel"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_centerInParent="true"
+        app:bootstrapBrand="warning"
+        android:text="@string/mealNameLabelText" />
+
+    <com.beardedhen.androidbootstrap.BootstrapEditText
+        android:id="@+id/mealName"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/mealNameLabel"
         android:ems="10"
         android:inputType="textPersonName"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
-        android:text="Nazwa potrawy" />
+        android:hint="@string/mealName"
+        />
 
-    <TextView
+    <com.beardedhen.androidbootstrap.BootstrapLabel
         android:id="@+id/textInfo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:roundedCorners="true"
         android:layout_below="@id/mealName"
         android:layout_centerInParent="true"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
-        android:text="Dodaj swój komentarz" />
+        app:bootstrapBrand="warning"
+        android:text="@string/addCommentText" />
 
-    <EditText
+    <com.beardedhen.androidbootstrap.BootstrapEditText
         android:id="@+id/comment"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/textInfo"
         android:layout_centerInParent="true"
@@ -37,17 +68,18 @@
         android:inputType="textPersonName"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
-        android:text="Max 255 znaków" />
-
-    <TextView
+        android:hint="@string/maxText" />
+    <com.beardedhen.androidbootstrap.BootstrapLabel
         android:id="@+id/rateInfo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:layout_below="@id/comment"
+        app:roundedCorners="true"
         android:layout_centerInParent="true"
         android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:text="Ocena" />
+        app:bootstrapBrand="warning"
+        android:text="@string/rateInfoText" />
 
     <RatingBar
         android:id="@+id/rate"
@@ -57,37 +89,36 @@
         android:layout_centerInParent="true"
         android:numStars="5"
         android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:stepSize="1" />
+        android:stepSize="0.5" />
 
     <ImageView
         android:id="@+id/photo"
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_below="@id/rate"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:contentDescription="@string/ratePhotoText" />
 
-    <Button
+    <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/photoButton"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/photo"
+        app:bootstrapBrand="warning"
         android:layout_centerInParent="true"
+        app:roundedCorners="true"
         android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:text="Zrób zdjęcie" />
+        android:text="@string/photoButtonText" />
 
-    <Button
+    <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/sendButton"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
+        android:layout_margin="10dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/photoButton"
         android:layout_centerInParent="true"
-
-        android:layout_margin="20dp"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:text="Dodaj ocene" />
-
+        app:bootstrapBrand="success"
+        android:layout_marginTop="20dp"
+        android:text="@string/sendButtonText" />
 
 </RelativeLayout>

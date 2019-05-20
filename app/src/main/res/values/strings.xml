@@ -1,5 +1,18 @@
 <resources>
     <string name="app_name">SzerMil</string>
+    <string name="loginButtonText">Logowanie</string>
+    <string name="facebookLoginButtonText">Logowanie przez Facebook</string>
+    <string name="registerButtonText">Rejestracja</string>
+    <string name="szermilLogoDescription">szerMilLogo</string>
+    <string name="mealName">Nazwa potrawy</string>
+    <string name="addCommentText">Dodaj swój komentarz</string>
+    <string name="maxText">Max 255 znaków</string>
+    <string name="photoButtonText">Zrób zdjęcie</string>
+    <string name="sendButtonText">Dodaj ocene</string>
+    <string name="ratePhotoText">ratePhoto</string>
+    <string name="rateInfoText">Ocena</string>
+    <string name="mealNameLabelText">Podaj nazwę potrawy:</string>
+    <string name="example_restaurant">EXAMPLE RESTAURANT</string>
     <string name="success_send">Wiadomość wysłana</string>
     <string name="failure_send">Wiadomość nie została wysłana</string>
     <string name="facebook_app_id">2062063413920312</string>
