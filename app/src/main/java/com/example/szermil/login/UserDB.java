@@ -1,10 +1,10 @@
-package com.example.szermil.dataacess;
+package com.example.szermil.login;
 
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.example.szermil.R;
-import com.example.szermil.presentation.User;
+import com.example.szermil.login.model.User;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.database.DatabaseReference;
 

@@ -1,4 +1,4 @@
-package com.example.szermil.presentation;
+package com.example.szermil.login.model;
 
 public class User {
     private String userId;

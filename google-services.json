@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "724042807333",
-    "firebase_url": "https://szermil-821fd.firebaseio.com",
-    "project_id": "szermil-821fd",
-    "storage_bucket": "szermil-821fd.appspot.com"
+    "project_number": "655833578402",
+    "firebase_url": "https://szermil.firebaseio.com",
+    "project_id": "szermil",
+    "storage_bucket": "szermil.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:724042807333:android:d1aa8af672644396",
+        "mobilesdk_app_id": "1:655833578402:android:d1aa8af672644396",
         "android_client_info": {
           "package_name": "com.example.szermil"
         }
       },
       "oauth_client": [
         {
-          "client_id": "724042807333-c16iqhb5cnk18csbe36qt7bfq4p5jqn3.apps.googleusercontent.com",
+          "client_id": "655833578402-svvvc9bqrcj2str5nesavfhat1u1sash.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.szermil",
+            "certificate_hash": "0570ae81e5ed5d63002da6ce8c29408402e96241"
+          }
+        },
+        {
+          "client_id": "655833578402-rvd419f4rh670pe7ib9j9rvin6nvdpu5.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAFZsQmuHkOluAl-PCkpPZKY2NZDfvtD1I"
+          "current_key": "AIzaSyChbO_Xubl1iTsIvjWYh3bukOgGCTURLGg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "724042807333-c16iqhb5cnk18csbe36qt7bfq4p5jqn3.apps.googleusercontent.com",
+              "client_id": "655833578402-rvd419f4rh670pe7ib9j9rvin6nvdpu5.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
