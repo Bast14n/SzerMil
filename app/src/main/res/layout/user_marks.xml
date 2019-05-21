@@ -1,47 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:elevation="90dp"
-    android:layout_margin="7dp"
-    tools:context=".user.marks.UserMarksActivity"
-    android:id="@+id/marksView"
-    >
-    <LinearLayout
+    tools:context=".user.mark.UserMarksActivity">
+
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="248dp"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:id="@+id/userMarksView"
         >
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            android:id="@+id/userImage"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/userMealName"
-            android:textSize="20dp"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:id="@+id/userRating"
-            />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="10dp"
-            android:id="@+id/userComment"
-            />
+    </android.support.v7.widget.RecyclerView>
 
-
-    </LinearLayout>
-
-</android.support.v7.widget.CardView>
+</RelativeLayout>

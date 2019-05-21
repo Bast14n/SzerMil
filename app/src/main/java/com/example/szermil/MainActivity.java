@@ -7,6 +7,7 @@ import com.beardedhen.androidbootstrap.BootstrapLabel;
 import com.example.szermil.login.LoginActivity;
 import com.example.szermil.restaurant.mark.MarkActivity;
 import com.example.szermil.restaurant_search.RestaurantSearchActivity;
+import com.example.szermil.user.mark.UserMarksActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +36,12 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), RestaurantSearchActivity.class);
             startActivity(intent);
         });
+
+            BootstrapLabel markButton = findViewById(R.id.userMarksButton);
+            markButton.setOnClickListener(v -> {
+                Intent intent = new Intent(getApplicationContext(), UserMarksActivity.class);
+                startActivity(intent);
+            });
 
     }
 
