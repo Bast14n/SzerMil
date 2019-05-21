@@ -4,9 +4,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -27,6 +25,7 @@ import static com.example.szermil.utils.ConfigUtils.USER_KEY;
 
 public class RestaurantSearchActivity extends AppCompatActivity {
     private LinearLayout linear;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,8 +88,8 @@ public class RestaurantSearchActivity extends AppCompatActivity {
             super.onPostExecute(json);
             try {
                 List<Restaurant> restaurants = JsonUtils.getListOfRestaurantsFromJson(json);
-                linear = (LinearLayout) findViewById(R.id.linearLayoutRestaurantList);
-                TextView[] newTextView = new TextView[20];
+                linear = findViewById(R.id.linearLayoutRestaurantList);
+                TextView[] newTextView = new TextView[restaurants.size()];
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 for (int i = 0; i < newTextView.length; i++) {
                     newTextView[i] = new TextView(getBaseContext());
@@ -142,8 +141,8 @@ public class RestaurantSearchActivity extends AppCompatActivity {
             try {
                 List<Restaurant> restaurants = JsonUtils.getListOfRestaurantsFromJson(json);
 
-                linear = (LinearLayout) findViewById(R.id.linearLayoutRestaurantList);
-                TextView[] newTextView = new TextView[10];
+                linear = findViewById(R.id.linearLayoutRestaurantList);
+                TextView[] newTextView = new TextView[restaurants.size()];
                 linear.removeAllViews();
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 for (int i = 0; i < newTextView.length; i++) {
