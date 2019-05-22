@@ -66,4 +66,20 @@
         app:showOutline="false"
         app:roundedCorners="true"
         />
+
+    <com.beardedhen.androidbootstrap.BootstrapLabel
+        android:id="@+id/userMarksButton"
+        android:layout_width="300dp"
+        app:bootstrapHeading="h3"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="10dp"
+        android:text="Oceny"
+        app:bootstrapBrand="warning"
+        app:bootstrapSize="lg"
+        app:buttonMode="regular"
+        app:showOutline="false"
+        app:roundedCorners="true"
+        />
 </RelativeLayout>
