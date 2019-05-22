@@ -3,7 +3,6 @@ package com.example.szermil.user.mark;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -32,7 +31,7 @@ public class UserMarksActivity extends AppCompatActivity {
     }
 
     private void getMarkList() {
-        markList = (RecyclerView)findViewById(R.id.userMarksView);
+        markList = findViewById(R.id.userMarksView);
         markList.setHasFixedSize(true);
         markList.setLayoutManager(new LinearLayoutManager(this));
     }
@@ -65,24 +64,24 @@ public class UserMarksActivity extends AppCompatActivity {
             super(itemView);
             view=itemView;
         }
-        public void setMeal(String mealName){
-            TextView meal = (TextView)view.findViewById(R.id.userMealName);
+        private void setMeal(String mealName){
+            TextView meal = view.findViewById(R.id.userMealName);
             meal.setText(mealName);
         }
 
-        public void setComment(String comment){
-            TextView meal = (TextView)view.findViewById(R.id.userComment);
+        private void setComment(String comment){
+            TextView meal = view.findViewById(R.id.userComment);
             meal.setText(comment);
         }
 
-        public void setRating(int rating){
-            TextView userRating = (TextView)view.findViewById(R.id.userRating);
+        private void setRating(int rating){
+            TextView userRating = view.findViewById(R.id.userRating);
             userRating.setText(Integer.toString(rating));
         }
-        public void setPhoto(String photoBase64){
+        private void setPhoto(String photoBase64){
             byte[] decodedString = Base64.decode(photoBase64,Base64.DEFAULT);
             Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString,0,decodedString.length);
-            ImageView image = (ImageView)view.findViewById(R.id.userImage);
+            ImageView image = view.findViewById(R.id.userImage);
             image.setImageBitmap(decodedByte);
         }
     }
