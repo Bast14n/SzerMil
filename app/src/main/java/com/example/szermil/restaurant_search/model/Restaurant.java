@@ -5,6 +5,9 @@ public class Restaurant {
     private String name;
     private String locality;
 
+    public Restaurant() {
+    }
+
     public Restaurant(long id, String name, String locality) {
         this.id = id;
         this.name = name;

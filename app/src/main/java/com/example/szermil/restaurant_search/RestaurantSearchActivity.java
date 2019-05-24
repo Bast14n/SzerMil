@@ -1,5 +1,6 @@
 package com.example.szermil.restaurant_search;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.example.szermil.R;
+import com.example.szermil.restaurant.details.RestaurantDetailsActivity;
 import com.example.szermil.restaurant_search.model.Restaurant;
 import com.example.szermil.utils.JsonUtils;
 
@@ -22,6 +24,8 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 import static com.example.szermil.utils.ConfigUtils.USER_KEY;
+import static com.example.szermil.utils.StringUtils.RESTAURANT_ID_PARAMETER;
+import static com.example.szermil.utils.StringUtils.RESTAURANT_NAME_PARAMETER;
 
 public class RestaurantSearchActivity extends AppCompatActivity {
     private LinearLayout linear;
@@ -97,7 +101,15 @@ public class RestaurantSearchActivity extends AppCompatActivity {
                     newTextView[i].setTextSize(25);
                     newTextView[i].setId(i);
                     newTextView[i].setLayoutParams(layoutParams);
-                    newTextView[i].setText(restaurants.get(i).getName());
+                    Restaurant nextRestaurant = restaurants.get(i);
+                    newTextView[i].setText(nextRestaurant.getName());
+
+                    newTextView[i].setOnClickListener(v -> {
+                        Intent intent = new Intent(getApplicationContext(), RestaurantDetailsActivity.class);
+                        intent.putExtra(RESTAURANT_ID_PARAMETER, nextRestaurant.getId());
+                        intent.putExtra(RESTAURANT_NAME_PARAMETER, nextRestaurant.getName());
+                        startActivity(intent);
+                    });
                     linear.addView(newTextView[i]);
                 }
             } catch (JSONException e) {
@@ -151,7 +163,16 @@ public class RestaurantSearchActivity extends AppCompatActivity {
                     newTextView[i].setTextSize(25);
                     newTextView[i].setId(i);
                     newTextView[i].setLayoutParams(layoutParams);
-                    newTextView[i].setText(restaurants.get(i).getName());
+                    Restaurant nextRestaurant = restaurants.get(i);
+                    newTextView[i].setText(nextRestaurant.getName());
+
+                    newTextView[i].setOnClickListener(v -> {
+                        Intent intent = new Intent(getApplicationContext(), RestaurantDetailsActivity.class);
+                        intent.putExtra(RESTAURANT_ID_PARAMETER, nextRestaurant.getId());
+                        intent.putExtra(RESTAURANT_NAME_PARAMETER, nextRestaurant.getName());
+                        startActivity(intent);
+                    });
+
                     linear.addView(newTextView[i]);
                 }
             } catch (JSONException e) {

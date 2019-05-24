@@ -64,21 +64,23 @@ public class UserMarksActivity extends AppCompatActivity {
             super(itemView);
             view=itemView;
         }
-        private void setMeal(String mealName){
+
+        public void setMeal(String mealName) {
             TextView meal = view.findViewById(R.id.userMealName);
             meal.setText(mealName);
         }
 
-        private void setComment(String comment){
+        public void setComment(String comment) {
             TextView meal = view.findViewById(R.id.userComment);
             meal.setText(comment);
         }
 
-        private void setRating(int rating){
+        public void setRating(int rating) {
             TextView userRating = view.findViewById(R.id.userRating);
             userRating.setText(Integer.toString(rating));
         }
-        private void setPhoto(String photoBase64){
+
+        public void setPhoto(String photoBase64) {
             byte[] decodedString = Base64.decode(photoBase64,Base64.DEFAULT);
             Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString,0,decodedString.length);
             ImageView image = view.findViewById(R.id.userImage);
