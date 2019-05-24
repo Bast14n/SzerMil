@@ -3,9 +3,9 @@ package com.example.szermil;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
 import com.beardedhen.androidbootstrap.BootstrapLabel;
 import com.example.szermil.login.LoginActivity;
-import com.example.szermil.restaurant.mark.MarkActivity;
 import com.example.szermil.restaurant_search.RestaurantSearchActivity;
 import com.example.szermil.user.mark.UserMarksActivity;
 
@@ -22,8 +22,7 @@ public class MainActivity extends AppCompatActivity {
         private void setButtonListeners() {
         BootstrapLabel loginButton = findViewById(R.id.loginButton);
         loginButton.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), MarkActivity.class);
-            startActivity(intent);
+            // TODO: implement login button
         });
 
         BootstrapLabel facebookLoginButton = findViewById(R.id.facebookLoginButton);

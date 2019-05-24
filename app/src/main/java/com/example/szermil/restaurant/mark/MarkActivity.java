@@ -20,6 +20,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.ByteArrayOutputStream;
 
+import static com.example.szermil.utils.StringUtils.RESTAURANT_ID_PARAMETER;
+
 public class MarkActivity extends AppCompatActivity {
     private Mark mark;
     private BootstrapButton photoButton;
@@ -88,6 +90,8 @@ public class MarkActivity extends AppCompatActivity {
         mark.setMealName(mealName.getText().toString());
         mark.setRating((int) rating.getRating());
         mark.setComment(comment.getText().toString());
+        long restaurantId = getIntent().getLongExtra(RESTAURANT_ID_PARAMETER, 0);
+        mark.setRestaurantId(restaurantId);
     }
 
     private boolean verifyPhoto(Mark mark) {
