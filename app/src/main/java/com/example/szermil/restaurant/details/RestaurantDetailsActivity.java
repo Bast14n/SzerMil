@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.beardedhen.androidbootstrap.BootstrapLabel;
 import com.example.szermil.R;
 import com.example.szermil.restaurant.mark.MarkActivity;
 import com.example.szermil.restaurant.mark.model.Mark;
@@ -41,7 +42,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
     }
 
     private void setButtonOnClickListeners() {
-        Button addMarkButton = findViewById(R.id.addMarkButton);
+        BootstrapLabel addMarkButton = findViewById(R.id.addMarkButton);
         addMarkButton.setOnClickListener(v -> {
                     Intent addMarkIntent = new Intent(getApplicationContext(), MarkActivity.class);
                     addMarkIntent.putExtra(RESTAURANT_ID_PARAMETER, restaurant.getId());
