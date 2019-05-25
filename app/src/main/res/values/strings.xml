@@ -17,4 +17,14 @@
     <string name="failure_send">Wiadomość nie została wysłana</string>
     <string name="facebook_app_id">2062063413920312</string>
     <string name="fb_login_protocol_scheme">fb2062063413920312</string>
+    <string name="addMark">Dodaj ocenę</string>
+    <string name="firstName">Imię</string>
+    <string name="lastName">Nazwisko</string>
+    <string name="emailHint">Wpisz e-mail</string>
+    <string name="passwordHint">Wpisz hasło</string>
+    <string name="registerButton">Zarejestruj</string>
+    <string name="contentImage">image</string>
+    <string name="otherClientsReviews">Oceny innych klientów:</string>
+    <string name="yourReviews">Twoje oceny:</string>
+    <string name="goBack">Wstecz</string>
 </resources>

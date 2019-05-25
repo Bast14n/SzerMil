@@ -9,8 +9,11 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.beardedhen.androidbootstrap.AwesomeTextView;
+import com.beardedhen.androidbootstrap.BootstrapLabel;
 import com.example.szermil.R;
 import com.example.szermil.restaurant.mark.model.Mark;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -66,18 +69,18 @@ public class UserMarksActivity extends AppCompatActivity {
         }
 
         public void setMeal(String mealName) {
-            TextView meal = view.findViewById(R.id.userMealName);
+            BootstrapLabel meal = view.findViewById(R.id.userMealName);
             meal.setText(mealName);
         }
 
         public void setComment(String comment) {
-            TextView meal = view.findViewById(R.id.userComment);
+            AwesomeTextView meal = view.findViewById(R.id.userComment);
             meal.setText(comment);
         }
 
         public void setRating(int rating) {
-            TextView userRating = view.findViewById(R.id.userRating);
-            userRating.setText(Integer.toString(rating));
+            RatingBar userRating = view.findViewById(R.id.userRatingValue);
+            userRating.setRating(Float.parseFloat(Integer.toString(rating)));
         }
 
         public void setPhoto(String photoBase64) {
