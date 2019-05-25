@@ -23,4 +23,5 @@
     <string name="emailHint">Wpisz e-mail</string>
     <string name="passwordHint">Wpisz hasło</string>
     <string name="registerButton">Zarejestruj</string>
+    <string name="contentImage">image</string>
 </resources>

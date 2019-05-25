@@ -22,7 +22,6 @@
             android:layout_height="30dp"
             android:textSize="40sp"
             android:textAlignment="textStart"
-            android:text="XXX"
             android:layout_margin="3dp"
             />
 
@@ -42,13 +41,13 @@
             android:layout_margin="3dp"
             android:layout_below="@+id/userRatingValue"
             android:layout_height="100dp"
+            android:contentDescription="@string/contentImage"
             android:scaleType="centerCrop" />
 
 
         <com.beardedhen.androidbootstrap.AwesomeTextView
             android:id="@+id/userComment"
             android:layout_width="match_parent"
-            android:text="XXX"
             android:layout_height="wrap_content"
             android:textAlignment="textStart"
             android:layout_margin="3dp"
