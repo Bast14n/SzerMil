@@ -10,9 +10,9 @@
     <com.beardedhen.androidbootstrap.BootstrapLabel
         android:layout_width="match_parent"
         android:id="@+id/yourMarks"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_marginHorizontal="10dp"
-        app:bootstrapBrand="warning"
+        app:bootstrapBrand="info"
         android:layout_centerInParent="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="10dp"

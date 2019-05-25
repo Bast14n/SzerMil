@@ -26,4 +26,5 @@
     <string name="contentImage">image</string>
     <string name="otherClientsReviews">Oceny innych klientów:</string>
     <string name="yourReviews">Twoje oceny:</string>
+    <string name="goBack">Wstecz</string>
 </resources>
