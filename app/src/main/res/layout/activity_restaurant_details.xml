@@ -36,13 +36,25 @@
         app:showOutline="false"
         app:roundedCorners="true"
         android:text="@string/addMark"/>
+    <com.beardedhen.androidbootstrap.BootstrapLabel
+        android:layout_width="match_parent"
+        android:id="@+id/otherUserRatingsLabel"
+        android:layout_height="wrap_content"
+        app:bootstrapBrand="info"
+        android:layout_marginHorizontal="10dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/addMarkButton"
+        android:text="@string/otherClientsReviews"
+        tools:targetApi="o" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/restaurantDetailsView"
+        android:layout_below="@+id/otherUserRatingsLabel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/addMarkButton"
-        android:layout_margin="10dp">
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="5dp"
+        tools:targetApi="o">
 
     </android.support.v7.widget.RecyclerView>
 </RelativeLayout>

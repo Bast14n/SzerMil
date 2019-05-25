@@ -24,4 +24,6 @@
     <string name="passwordHint">Wpisz hasło</string>
     <string name="registerButton">Zarejestruj</string>
     <string name="contentImage">image</string>
+    <string name="otherClientsReviews">Oceny innych klientów:</string>
+    <string name="yourReviews">Twoje oceny:</string>
 </resources>
