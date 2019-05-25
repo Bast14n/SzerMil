@@ -18,7 +18,6 @@ public class UserProfile extends AppCompatActivity {
 
         setButtonListeners();
     }
-
     private void setButtonListeners() {
         BootstrapLabel registerButton = findViewById(R.id.registerButton);
         registerButton.setOnClickListener(v -> {
