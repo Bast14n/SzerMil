@@ -13,6 +13,7 @@ import android.widget.RatingBar;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.beardedhen.androidbootstrap.BootstrapEditText;
+import com.beardedhen.androidbootstrap.BootstrapLabel;
 import com.example.szermil.R;
 import com.example.szermil.restaurant.mark.model.Mark;
 import com.google.firebase.database.DatabaseReference;
@@ -21,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.io.ByteArrayOutputStream;
 
 import static com.example.szermil.utils.StringUtils.RESTAURANT_ID_PARAMETER;
+import static com.example.szermil.utils.StringUtils.RESTAURANT_NAME_PARAMETER;
 
 public class MarkActivity extends AppCompatActivity {
     private Mark mark;
@@ -36,7 +38,9 @@ public class MarkActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mark_activity);
-
+        String restaurantName = getIntent().getStringExtra(RESTAURANT_NAME_PARAMETER);
+        BootstrapLabel bootstrapLabel = findViewById(R.id.restaurantNameLabel);
+        bootstrapLabel.setText(restaurantName);
         mark = new Mark();
         getPhoto();
         sendMark();

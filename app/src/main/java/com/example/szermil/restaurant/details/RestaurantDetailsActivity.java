@@ -46,6 +46,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
         addMarkButton.setOnClickListener(v -> {
                     Intent addMarkIntent = new Intent(getApplicationContext(), MarkActivity.class);
                     addMarkIntent.putExtra(RESTAURANT_ID_PARAMETER, restaurant.getId());
+                    addMarkIntent.putExtra(RESTAURANT_NAME_PARAMETER,restaurant.getName());
                     startActivity(addMarkIntent);
                 }
         );

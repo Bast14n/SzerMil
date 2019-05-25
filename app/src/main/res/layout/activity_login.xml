@@ -1,55 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#ffa"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
+
+    <com.beardedhen.androidbootstrap.BootstrapEditText
         android:id="@+id/firstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Imię"/>
+        android:hint="@string/firstName"/>
 
-    <EditText
+    <com.beardedhen.androidbootstrap.BootstrapEditText
         android:id="@+id/lastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+
         android:layout_below="@+id/firstName"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Nazwisko" />
-    <EditText
+        android:hint="@string/lastName" />
+    <com.beardedhen.androidbootstrap.BootstrapEditText
         android:id="@+id/mail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_below="@+id/lastName"
+        android:hint="@string/emailHint"
         android:ems="10"
         android:inputType="textEmailAddress" />
-    <EditText
+
+    <com.beardedhen.androidbootstrap.BootstrapEditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="10dp"
-        android:layout_marginHorizontal="15dp"
+        android:layout_margin="10dp"
         tools:targetApi="o"
+        android:hint="@string/passwordHint"
         android:layout_below="@+id/mail"
         android:ems="10"/>
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/googleSignInButton"
-        android:layout_width="346dp"
-        android:layout_height="51dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/registerButton"
         android:layout_marginHorizontal="30dp"
         tools:targetApi="o"
-        tools:ignore="ExtraText">
+        tools:ignore="ExtraText"
+        >
         android:layout_width="196dp"
         android:layout_height="80dp"</com.google.android.gms.common.SignInButton>
 
@@ -60,7 +64,7 @@
         android:layout_marginHorizontal="30dp"
         tools:targetApi="o"
         android:layout_above="@+id/signOutButton"
-        android:text="Zarejestruj"/>
+        android:text="@string/registerButton"/>
     <Button
         android:id="@+id/signOutButton"
         android:layout_width="match_parent"
@@ -69,7 +73,7 @@
         tools:targetApi="o"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="50dp"
-        android:text="Wyloguj" />
+        android:text="Wstecz" />
 
 
     <!--<com.facebook.login.widget.LoginButton-->
