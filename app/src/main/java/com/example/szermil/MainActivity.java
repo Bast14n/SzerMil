@@ -37,14 +37,5 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
         });
-
-            BootstrapLabel markButton = findViewById(R.id.userMarksButton);
-            markButton.setOnClickListener(v -> {
-                Intent intent = new Intent(getApplicationContext(), UserMarksActivity.class);
-                startActivity(intent);
-            });
-
     }
-
-
 }
