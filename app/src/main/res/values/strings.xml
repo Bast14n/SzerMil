@@ -27,4 +27,7 @@
     <string name="otherClientsReviews">Oceny innych klientów:</string>
     <string name="yourReviews">Twoje oceny:</string>
     <string name="goBack">Wstecz</string>
+    <string name="example">example</string>
+    <string name="searchRestaurant">Wyszukaj restauracje</string>
+    <string name="yourRatingsText">Przeglądaj swoje oceny</string>
 </resources>

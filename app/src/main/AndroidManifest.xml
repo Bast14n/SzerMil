@@ -24,6 +24,7 @@
         <activity android:name=".restaurant.mark.MarkActivity" />
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".user.mark.UserMarksActivity" />
+        <activity android:name=".user_profile.UserProfile" />
     </application>
 
 </manifest>
