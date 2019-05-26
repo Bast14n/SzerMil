@@ -1,4 +1,4 @@
-package com.example.szermil.presentation;
+package com.example.szermil.login.model;
 
 public class User {
     private String userId;
@@ -6,6 +6,7 @@ public class User {
     private String lastName;
     private String email;
     private String password;
+    private String fullname;
 
     public User() {
 
@@ -22,6 +23,12 @@ public class User {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
+    }
+
+    public User(String userId, String fullName, String email ){
+        this.userId = userId;
+        this.fullname = fullName;
         this.email = email;
     }
 
@@ -43,5 +50,9 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getFullname() {
+        return fullname;
     }
 }

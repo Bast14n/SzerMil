@@ -38,6 +38,7 @@ public class MarkActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mark_activity);
+        getSupportActionBar().setTitle("Oceny");
         String restaurantName = getIntent().getStringExtra(RESTAURANT_NAME_PARAMETER);
         BootstrapLabel bootstrapLabel = findViewById(R.id.restaurantNameLabel);
         bootstrapLabel.setText(restaurantName);
