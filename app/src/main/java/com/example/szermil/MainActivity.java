@@ -2,62 +2,63 @@ package com.example.szermil;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.view.MenuItem;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
+import android.view.Menu;
 
-import com.example.szermil.restaurant.mark.MarkActivity;
 import com.example.szermil.restaurant_search.RestaurantSearchActivity;
 import com.example.szermil.start.StartActivity;
+import com.example.szermil.user_profile.UserProfileFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
-    private DrawerLayout drawer;
+public class MainActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        createToolbar();
+        initializeDefaultFragment();
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            Intent intent = new Intent(getApplicationContext(), MarkActivity.class);
-            startActivity(intent);
-        } else {
+        if (user == null) {
             Intent intent = new Intent(getApplicationContext(), StartActivity.class);
             startActivity(intent);
         }
-        createToolbar();
     }
 
-    public void createToolbar() {
+    public void createToolbar(){
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
-                R.string.navigationDrawerOpen, R.string.navigationDrawerClose);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
-        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
 
-//        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//        ft.replace(new LoginFragment())
-//        ft.commit();
-
+    public void initializeDefaultFragment() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.frameLayoutMain, new UserProfileFragment());
+        ft.commit();
     }
 
     @Override
     public void onBackPressed() {
-        if(drawer.isDrawerOpen(GravityCompat.START)){
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
@@ -65,28 +66,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
         Intent intent;
-        switch (menuItem.getItemId()) {
+        switch (item.getItemId()) {
             case R.id.nav_restaurant:
                 intent = new Intent(getApplicationContext(), RestaurantSearchActivity.class);
                 startActivity(intent);
-                drawer.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_search:
                 intent = new Intent(getApplicationContext(), RestaurantSearchActivity.class);
-                drawer.closeDrawer(GravityCompat.START);
                 startActivity(intent);
                 break;
             case R.id.nav_signOut:
                 FirebaseAuth.getInstance().signOut();
                 intent = new Intent(getApplicationContext(), StartActivity.class);
-                drawer.closeDrawer(GravityCompat.START);
                 startActivity(intent);
                 break;
         }
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
 }

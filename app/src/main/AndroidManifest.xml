@@ -12,18 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".start.StartActivity" />
-
-        <activity
-            android:name=".login.RegisterActivity"
-            android:label="@string/title_activity_login" />
-
-        <activity
-            android:name=".restaurant.details.RestaurantDetailsActivity"
-            android:parentActivityName=".MainActivity" />
-
         <activity
             android:name=".MainActivity"
+            android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,16 +22,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".start.StartActivity" />
+        <activity
+            android:name=".login.RegisterActivity"
+            android:label="@string/title_activity_login" />
+        <activity
+            android:name=".restaurant.details.RestaurantDetailsActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".restaurant_search.RestaurantSearchActivity"
             android:parentActivityName=".MainActivity" />
-
         <activity
             android:name=".restaurant.mark.MarkActivity"
-            android:parentActivityName=".MainActivity" />
-
-        <activity android:name=".user_profile.UserProfile"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".user.mark.UserMarksActivity"
