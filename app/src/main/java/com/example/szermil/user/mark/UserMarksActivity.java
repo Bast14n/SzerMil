@@ -35,6 +35,7 @@ public class UserMarksActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_marks);
+        getSupportActionBar().setTitle("Twoje oceny");
         setUpDatabase();
         getMarkList();
     }

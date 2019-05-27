@@ -34,7 +34,7 @@ public class RestaurantSearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_search);
-
+        getSupportActionBar().setTitle("Wyszukaj restauracji");
 
         SearchView searchView = findViewById(R.id.restaurantsSearchView);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

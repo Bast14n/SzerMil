@@ -36,6 +36,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_details);
+        getSupportActionBar().setTitle("Restauracje");
         initialize();
     }
 
