@@ -11,6 +11,7 @@ import android.widget.EditText;
 import com.example.szermil.R;
 import com.example.szermil.login.model.User;
 import com.example.szermil.restaurant.mark.MarkActivity;
+import com.example.szermil.start.StartActivity;
 import com.facebook.appevents.AppEventsLogger;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -93,10 +94,9 @@ public class RegisterActivity extends AppCompatActivity{
 
         if(isEmptyFlag) {
             try {
+                StartActivity sa = new StartActivity();
                 mAuth.createUserWithEmailAndPassword(userEmail, userPassword);
-                id = Long.toString(maxId);
-                User user = new User(id, userFirstName,userLastName, userEmail, userPassword);
-                usersDB.signIn(user);
+                sa.initializeEmailPasswordLogin(userEmail,userPassword );
                 updateUI();
             }
             catch (Exception e) {

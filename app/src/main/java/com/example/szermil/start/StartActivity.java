@@ -11,6 +11,7 @@ import com.beardedhen.androidbootstrap.BootstrapLabel;
 import com.example.szermil.R;
 import com.example.szermil.login.RegisterActivity;
 import com.example.szermil.login.UserDB;
+import com.example.szermil.login.model.User;
 import com.example.szermil.restaurant.mark.MarkActivity;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -33,6 +34,7 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -101,6 +103,10 @@ public class StartActivity extends AppCompatActivity implements GoogleApiClient.
         });
     }
 
+    private void updateUI() {
+        Intent intent = new Intent(getApplicationContext(), MarkActivity.class);
+        startActivity(intent);
+    }
     //  ------ facebook sign in logic ------
 
     private void initializeFacebookElements() {
@@ -141,7 +147,6 @@ public class StartActivity extends AppCompatActivity implements GoogleApiClient.
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         FirebaseUser user = mAuth.getCurrentUser();
-                        usersDB.signInViaFacebook(user, maxId);
                     } else {
                         Toast.makeText(getApplicationContext(), "sign in filed", Toast.LENGTH_LONG).show();
 
@@ -151,29 +156,28 @@ public class StartActivity extends AppCompatActivity implements GoogleApiClient.
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        mCallbackManager.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            handleSignInResult(task);
-            updateUI();
-
+            try {
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                firebaseAuthWithGoogle(account);
+            } catch (ApiException e) {
+            }
+        } else {
+            mCallbackManager.onActivityResult(requestCode, resultCode, data);
         }
     }
 
 
-    private void updateUI() {
-        Intent intent = new Intent(getApplicationContext(), MarkActivity.class);
-        startActivity(intent);
-    }
-
-    // ------  Google sign in logic ------
+// ------  Google sign in logic ------
 
     private void initializeGoogleElements() {
         SignInButton signInButton = findViewById(R.id.googleSignInButton);
         signInButton.setOnClickListener(this);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
@@ -183,12 +187,18 @@ public class StartActivity extends AppCompatActivity implements GoogleApiClient.
                 .build();
     }
 
-    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
-        try {
-            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            usersDB.signInViaGoogleAccount(account, maxId);
-        } catch (ApiException e) {
-        }
+    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
+        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(getApplicationContext(), "logged in!",
+                                Toast.LENGTH_LONG).show();
+                        updateUI();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_LONG).show();
+                    }
+                });
     }
 
     @Override
@@ -197,25 +207,29 @@ public class StartActivity extends AppCompatActivity implements GoogleApiClient.
             case R.id.googleSignInButton:
                 signIn();
                 break;
-            case R.id.signOutButton:
-                signOut();
-                break;
         }
     }
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
+        Toast.makeText(getApplicationContext(), "error!",
+                Toast.LENGTH_LONG).show();
     }
-
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
-    private void signOut() {
-        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(status ->
-                System.out.println("Sign out status: " + status.toString()));
+    // ------ password email auth ------
+
+
+    public void initializeEmailPasswordLogin(String email, String password) {
+        mAuth = FirebaseAuth.getInstance();
+        mAuth.createUserWithEmailAndPassword(email, password);
+    }
+
+    public void signOutUser() {
+        FirebaseAuth.getInstance().signOut();
     }
 }
