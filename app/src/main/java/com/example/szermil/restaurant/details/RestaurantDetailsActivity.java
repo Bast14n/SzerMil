@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.beardedhen.androidbootstrap.BootstrapLabel;
 import com.example.szermil.R;
 import com.example.szermil.restaurant.mark.MarkActivity;
+import com.example.szermil.restaurant.mark.details.MarkDetails;
 import com.example.szermil.restaurant.mark.model.Mark;
 import com.example.szermil.restaurant_search.model.Restaurant;
 import com.example.szermil.user.mark.UserMarksActivity;
@@ -18,8 +20,12 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import static com.example.szermil.utils.StringUtils.MEAL_NAME_PARAMETER;
 import static com.example.szermil.utils.StringUtils.RESTAURANT_ID_PARAMETER;
 import static com.example.szermil.utils.StringUtils.RESTAURANT_NAME_PARAMETER;
+import static com.example.szermil.utils.StringUtils.USER_COMMENT_PARAMETER;
+import static com.example.szermil.utils.StringUtils.USER_PHOTO_BASE64_PARAMETER;
+import static com.example.szermil.utils.StringUtils.USER_RATING_PARAMETER;
 
 public class RestaurantDetailsActivity extends AppCompatActivity {
     private Restaurant restaurant;
@@ -90,6 +96,17 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
                 viewHolder.setComment(model.getComment());
                 viewHolder.setRating(model.getRating());
                 viewHolder.setPhoto(model.getPhotoBase64());
+                viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), MarkDetails.class);
+                        intent.putExtra(MEAL_NAME_PARAMETER,model.getMealName());
+                        intent.putExtra(USER_PHOTO_BASE64_PARAMETER,model.getPhotoBase64());
+                        intent.putExtra(USER_RATING_PARAMETER,model.getRating());
+                        intent.putExtra(USER_COMMENT_PARAMETER,model.getComment());
+                        startActivity(intent);
+                    }
+                });
 
             }
         };
