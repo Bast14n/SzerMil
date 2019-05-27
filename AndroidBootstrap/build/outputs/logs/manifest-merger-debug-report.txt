@@ -1,37 +1,37 @@
 -- Merging decision tree log ---
 manifest
-ADDED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml:2:1-55
-INJECTED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml:2:1-55
-INJECTED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml:2:1-55
-INJECTED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml:2:1-55
-INJECTED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml:2:1-55
-INJECTED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml:2:1-55
-INJECTED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml:2:1-55
+ADDED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml:2:1-55
+INJECTED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml:2:1-55
+INJECTED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml:2:1-55
+INJECTED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml:2:1-55
+INJECTED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml:2:1-55
+INJECTED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml:2:1-55
+INJECTED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml:2:1-55
 	package
-		ADDED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml:2:11-52
-		INJECTED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml
-		INJECTED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml
+		ADDED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml:2:11-52
+		INJECTED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml
+		INJECTED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml
-		ADDED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml:2:1-55
-		INJECTED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml
+		INJECTED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml
+		ADDED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml:2:1-55
+		INJECTED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml:2:1-55
+		ADDED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml:2:1-55
 	android:versionCode
-		INJECTED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml
-		ADDED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml:2:1-55
-		INJECTED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml
+		INJECTED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml
+		ADDED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml:2:1-55
+		INJECTED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml
 uses-sdk
-INJECTED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml
-INJECTED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml
-INJECTED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml
-INJECTED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml
+INJECTED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml
+INJECTED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml
+INJECTED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml
+INJECTED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml
-		ADDED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml
-		INJECTED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml
+		INJECTED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml
+		ADDED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml
+		INJECTED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml
-		ADDED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml
-		INJECTED from F:\programy\SzerMil1\AndroidBootstrap\src\main\AndroidManifest.xml
+		INJECTED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml
+		ADDED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml
+		INJECTED from F:\programy\SzerMill\AndroidBootstrap\src\main\AndroidManifest.xml

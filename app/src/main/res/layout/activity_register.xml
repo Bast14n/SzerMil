@@ -61,50 +61,14 @@
         android:layout_below="@+id/mail"
         android:ems="10"/>
 
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/googleSignInButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/registerButton"
-        android:layout_marginHorizontal="30dp"
-        tools:targetApi="o"
-        tools:ignore="ExtraText"
-        >
-        android:layout_width="196dp"
-        android:layout_height="80dp"</com.google.android.gms.common.SignInButton>
-
     <Button
         android:id="@+id/registerButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="50dp"
         tools:targetApi="o"
-        android:layout_above="@+id/signOutButton"
+        android:layout_below="@+id/password"
         android:text="@string/registerButton"/>
-    <Button
-        android:id="@+id/signOutButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        tools:targetApi="o"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="50dp"
-        android:text="@string/goBack" />
-
-
-    <!--<com.facebook.login.widget.LoginButton-->
-        <!--android:id="@+id/facebookLoginButton"-->
-        <!--android:layout_width="353dp"-->
-        <!--android:layout_height="47dp"-->
-        <!--android:layout_gravity="center_horizontal"-->
-        <!--android:layout_marginStart="108dp"-->
-        <!--android:layout_marginEnd="142dp"-->
-        <!--android:layout_marginBottom="32dp"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintHorizontal_bias="0.414"-->
-        <!--app:layout_constraintStart_toStartOf="parent" />-->
-
-
-
+    
 </RelativeLayout>
