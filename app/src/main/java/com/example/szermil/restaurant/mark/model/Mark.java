@@ -1,18 +1,18 @@
 package com.example.szermil.restaurant.mark.model;
 
 public class Mark {
-    private long userId;
+    private String userId;
     private long restaurantId;
     private String mealName;
     private String comment;
     private int rating;
     private String photoBase64;
 
-    public long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

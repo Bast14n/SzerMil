@@ -16,6 +16,7 @@ import com.beardedhen.androidbootstrap.BootstrapEditText;
 import com.beardedhen.androidbootstrap.BootstrapLabel;
 import com.example.szermil.R;
 import com.example.szermil.restaurant.mark.model.Mark;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -43,6 +44,8 @@ public class MarkActivity extends AppCompatActivity {
         BootstrapLabel bootstrapLabel = findViewById(R.id.restaurantNameLabel);
         bootstrapLabel.setText(restaurantName);
         mark = new Mark();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mark.setUserId(mAuth.getCurrentUser().getUid());
         getPhoto();
         sendMark();
     }
